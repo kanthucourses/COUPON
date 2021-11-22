@@ -1,0 +1,137 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form [formGroup]="couponMasterForm">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputCouponCode">Coupon Code</label>
+                        <input type="text" class="form-control" id="inputCouponCode" formControlName="couponCode"
+                        placeholder="Coupon Code">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputCouponName">Coupon Name</label>
+                        <input type="text" class="form-control" id="inputCouponName" formControlName="couponName"
+                        placeholder="Coupon Name">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputCouponDescription">Coupon Description</label>
+                        <input type="text" class="form-control" id="inputCouponDescription" formControlName="couponDescription"
+                        placeholder="Coupon Description">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputCouponType">Coupon Type</label>
+                        <input type="text" class="form-control" id="inputCouponType" formControlName="couponType"
+                        placeholder="Coupon Type">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputCouponValue">Coupon Value</label>
+                        <input type="text" class="form-control" id="inputCouponValue" formControlName="couponValue"
+                        placeholder="Coupon Value">
+                    </div>
+                    <div class="col-sm-6">
+                       
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputValidFromDateTime">Valid From</label>
+                        <input type="text" class="form-control" id="inputValidFromDateTime" formControlName="validFromDateTime"
+                         placeholder="Valid From">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputValidToDateTime">Valid To</label>
+                        <input type="text" class="form-control" id="inputValidToDateTime" formControlName="validToDateTime;" 
+                        placeholder="Valid To">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputCouponUsageLimit">Coupon Usage Limit</label>
+                        <input type="number" class="form-control" id="inputCouponUsageLimit" formControlName="couponUsageLimit"
+                        placeholder="Coupon Usage Limit">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputCouponStatus">Status</label>
+                        <input type="text" class="form-control" id="inputCouponStatus" formControlName="couponStatus"
+                        placeholder="Status">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputMinimumSpendValue">Minimum Spend Value</label>
+                        <input type="number" class="form-control" id="inputMinimumSpendValue" formControlName="minimumSpendValue"
+                        placeholder="Minimum Spend Value">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputMaximunSpendValue">Maximum Spend Value</label>
+                        <input type="number" class="form-control" id="inputMaximunSpendValue" formControlName="maximumSpendValue"
+                        placeholder="Maximum Spend Value">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"> </label>
+                        <div class="col-sm-8 text-right mt-2">
+                            <button [hidden]="viewToggle" class="btn btn-green m-1" (click)="saveCouponMasterForm()">
+                                {{actionButton}}</button>
+                            <button [hidden]="viewToggle" class="btn btn-white">CLEAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="cmsDataTables">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="float-right">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="example" >
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let key of couponMasterKeys">{{key}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of couponMasterData;let i=index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{data.couponCode}}</td>
+                                        <td>{{data.couponName}}</td>
+                                        <td>{{data.couponDescription}}</td>
+                                        <td>{{data.couponType}}</td>
+                                        <td>{{data.couponValue}}</td>
+                                        <td>{{data.validFromDateTime}}</td>
+                                        <td>{{data.validToDateTime}}</td>
+                                        <td>{{data.couponUsageLimit}}</td>
+                                        <td>{{data.couponStatus}}</td>
+                                        <td>{{data.minimumSpendValue}}</td>
+                                        <td>{{data.minimumSpendValue}}</td>
+                                        <td ><span
+                                                _ngcontent-lty-c40="" class="btn btn-pink btn-sm"><i _ngcontent-lty-c40=""
+                                                    class="fa fa-pencil btn-sm" (click)="updateCouponMasterForm(data)"></i>
+                                                <i _ngcontent-lty-c40="" class="fa fa-trash btn-blue"
+                                                (click)="deleteCouponMasterData(data._id)" ></i></span></td>
+                                        <td ><button
+                                                class="btn btn-green" >View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

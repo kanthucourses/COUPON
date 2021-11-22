@@ -1,0 +1,111 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <form [formGroup]="productMasterForm">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputProductId">Product Id</label>
+                        <input type="text" class="form-control" id="inputProductId" formControlName="productId"
+                        placeholder="Product Id">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputProductName">Product Name</label>
+                        <input type="text" class="form-control" id="inputProductName" formControlName="productName"
+                        placeholder="Product Name">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputProductDescription">Product Description</label>
+                        <input type="text" class="form-control" id="inputProductDescription" formControlName="productDescription"
+                        placeholder="Product Description">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputProductPrice">Product Price</label>
+                        <input type="text" class="form-control" id="inputProductPrice" formControlName="productPrice"
+                        placeholder="Product Price">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputProductImageUrl">Product Image URL</label>
+                        <input type="text" class="form-control" id="inputProductImageUrl" formControlName="productImageUrl"
+                        placeholder="Product Image URL">
+                    </div>
+                    <div class="col-sm-6">
+                       
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="inputUnitsInstock">Units In Stock</label>
+                        <input type="text" class="form-control" id="inputUnitsInstock" formControlName="unitsInstock"
+                         placeholder="Units In Stock">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputProductCategory">Product Category</label>
+                        <input type="text" class="form-control" id="inputProductCategory" formControlName="productCategory" 
+                        placeholder="Product Category">
+                    </div>
+                </div>
+                
+               
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label"> </label>
+                        <div class="col-sm-8 text-right mt-2">
+                            <button [hidden]="viewToggle" class="btn btn-green m-1" (click)="saveProductMasterForm()">
+                                {{actionButton}}</button>
+                            <button [hidden]="viewToggle" class="btn btn-white">CLEAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="cmsDataTables">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="float-right">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <table id="example" >
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let key of productMasterKeys">{{key}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let data of productMasterData;let i=index">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{data.productId}}</td>
+                                        <td>{{data.productName}}</td>
+                                        <td>{{data.productDescription}}</td>
+                                        <td>{{data.productPrice}}</td>
+                                        <td>{{data.unitsInstock}}</td>
+                                        <td>{{data.productCategory}}</td>
+                                        <td>{{data.productImageUrl}}</td>
+                                        <td ><span
+                                                _ngcontent-lty-c40="" class="btn btn-pink btn-sm"><i _ngcontent-lty-c40=""
+                                                    class="fa fa-pencil btn-sm" (click)="updateProductMasterForm(data)"></i>
+                                                <i _ngcontent-lty-c40="" class="fa fa-trash btn-blue"
+                                                (click)="deleteProductMasterData(data._id)" ></i></span></td>
+                                        <td ><button
+                                                class="btn btn-green" >View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

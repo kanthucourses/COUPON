@@ -13,6 +13,7 @@ import { ProductCatalogComponent } from './masters/product-catalog/product-catal
 import { CartComponent } from './masters/cart/cart.component';
 import { PaymentComponent } from './masters/payment/payment.component';
 //import { DataTablesModule } from 'angular-datatables';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { PaymentComponent } from './masters/payment/payment.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-   // DataTablesModule.forRoot(),
+    DataTablesModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-top-center',

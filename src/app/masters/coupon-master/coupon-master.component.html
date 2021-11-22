@@ -86,7 +86,7 @@
                 </div>
 
                 <!-- table -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="cmsDataTables">
                             <div class="row">
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <table id="example" >
+                            <table id="example" datatable [dtOptions]="dtOptions"[dtTrigger]="dtTrigger">
                                 <thead>
                                     <tr>
                                         <th *ngFor="let key of couponMasterKeys">{{key}}</th>
@@ -126,6 +126,46 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wmsDataTables">
+                            <div id="style-8" class="scrollbar">
+                                <table id="example1" class="table table-striped" datatable [dtOptions]="dtOptions"[dtTrigger]="dtTrigger"style="width:max-content">
+                                    <thead>
+                                        <tr>
+                                            <th *ngFor="let key of couponMasterKeys">{{key}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let data of couponMasterData;let i=index">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{data.couponCode}}</td>
+                                            <td>{{data.couponName}}</td>
+                                            <td>{{data.couponDescription}}</td>
+                                            <td>{{data.couponType}}</td>
+                                            <td>{{data.couponValue}}</td>
+                                            <td>{{data.validFromDateTime}}</td>
+                                            <td>{{data.validToDateTime}}</td>
+                                            <td>{{data.couponUsageLimit}}</td>
+                                            <td>{{data.couponStatus}}</td>
+                                            <td>{{data.minimumSpendValue}}</td>
+                                            <td>{{data.minimumSpendValue}}</td>
+                                            <td ><span
+                                                    _ngcontent-lty-c40="" class="btn btn-pink btn-sm"><i _ngcontent-lty-c40=""
+                                                        class="fa fa-pencil btn-sm" (click)="updateCouponMasterForm(data)"></i>
+                                                    <i _ngcontent-lty-c40="" class="fa fa-trash btn-blue"
+                                                    (click)="deleteCouponMasterData(data._id)" ></i></span></td>
+                                            <td ><button
+                                                    class="btn btn-green" >View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            
                         </div>
                     </div>
                 </div>

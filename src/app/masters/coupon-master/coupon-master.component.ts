@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import { DataTableDirective } from 'angular-datatables';
 import { ToastrService } from 'ngx-toastr';
-//import { Subject } from 'rxjs';
+
+import { Subject } from 'rxjs';
 import { CouponService } from 'src/app/services/coupon.service';
+import { DataTableDirective } from 'angular-datatables';
 
 @Component({
   selector: 'app-coupon-master',
@@ -16,10 +18,12 @@ export class CouponMasterComponent implements OnInit {
    'Coupo Value', 'ValidFrom', 'ValidTo', 'Coupon Usage Limit', 'Status', 'Minimum Spend Value',
    'Maximum Spend Value','Action'];
  
-   //dtOptions: DataTables.Settings = {};
-   //dtTrigger: Subject<any> = new Subject();
-   //@ViewChild(DataTableDirective)
-   //dtElement: DataTableDirective;
+
+
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
    
   couponMasterData: any[] = [];
   couponMasterForm: FormGroup;
@@ -38,10 +42,10 @@ export class CouponMasterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.dtOptions = {
-    //   pagingType: 'full_numbers',
-    //   pageLength: 5,
-    // };
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+    };
     this.actionButton = 'SAVE';
     this.createForm();
     this.getAllCouponMasterData();
@@ -123,19 +127,20 @@ export class CouponMasterComponent implements OnInit {
 
     });
   }
-
-  // ngAfterViewInit(): void {
-  //   this.dtTrigger.next();
-  // }
-  // rerender(): void {
-  //   this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-  //     this.dtTrigger.next();
-  //     dtInstance.destroy();
-  //   });
-  // }
-  // ngOnDestroy(): void {
-  //   this.dtTrigger.unsubscribe();
-  // }
+  ngAfterViewInit(): void {
+    this.dtTrigger.next(null);
+  }
+  
+  rerender(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      this.dtTrigger.next(null); 
+      dtInstance.destroy();
+    });
+  }
+  
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
  
 
 }

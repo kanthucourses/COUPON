@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductCatalogComponent implements OnInit {
 
   productMasterData: any[] = [];
-
+  public totalItem : number = 0;
  constructor(
   private productService: ProductService,
   private formBuilder: FormBuilder,
@@ -22,6 +22,11 @@ export class ProductCatalogComponent implements OnInit {
   ngOnInit() {
 
     this.getAllProductMasterData();
+
+    this.productService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
   }
   
   getAllProductMasterData() {
@@ -30,5 +35,11 @@ export class ProductCatalogComponent implements OnInit {
      // this.rerender();
     })
   }
+
+  addtocart(item: any){
+    this.productService.addtoCart(item);
+  }
+ 
+  
 
 }

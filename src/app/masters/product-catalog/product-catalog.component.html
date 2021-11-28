@@ -1,59 +1,67 @@
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Trending <b>Products</b></h2>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
-                <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>    
-                <!-- Wrapper for carousel items -->
-                <div class="carousel-inner" >
-                    <div class="item carousel-item active" >
-                        <div class="row" >
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-sm-6" *ngFor="let product of productMasterData;">
-                                        <div class="thumb-wrapper">
-                                            <div class="img-box">
-                                                <img src={{product.productImageUrl}} class="img-responsive img-fluid" alt="">
-                                            </div>
-                                            <div class="thumb-content">
-                                                <h4>{{product.productName}}</h4>
-                                                <p class="item-price"><s>$400.00</s> <span>{{product.productPrice}}</span></p>
-                                                <div class="star-rating">
-                                                    <ul class="list-inline">
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                                        <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-                                                    </ul>
-                                                </div>
-                                                <a href="#" class="btn btn-primary">Add to Cart</a>
-                                            </div>						
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        
-                        </div>
-                    </div>
-                    
-                </div> 
-                <!-- Carousel controls -->
-                <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-                <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
-                    <i class="fa fa-angle-right"></i>
-                </a>
+<header>
+    <div class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
+                
+            </i>
+            <strong style="font-size: 30px;">Tomato</strong>
+            <div class="form-group">
+                <input type="text" class="form-control"   placeholder="search products">
             </div>
-            </div>
+            <span class="fas fa-search search-icon"></span>
+
+
+        </div>
+        <button routerLink="/cart" class="btn btn-primary">
+            <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+            <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+        </button>
+    </div>
+</header>
+
+
+
+<!-- body -->
+<div class="card-top container-fluid">
+    <div class="container d-flex">
+        <div class="item">
+            <a >
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/f15c02bfeb02d15d.png?q=100" alt="">
+                <h6>All products</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a >
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png?q=100" alt="">
+                <h6>Electronics</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a >
+                <img src="https://rukminim1.flixcart.com/flap/128/128/image/82b3ca5fb2301045.png?q=100" alt="">
+                <h6>Fashion</h6>
+            </a>
+        </div>
+        <div class="item">
+            <a>
+                <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
+                <h6>Jewllery</h6>
+            </a>
         </div>
     </div>
-    </body>
+</div>
+
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let data of productMasterData">
+            <div class="card col-md-3">
+                <img src="{{data.productImageUrl}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{data.productName}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{data.productDescription}}</p>
+                <p><strong>Price:</strong> Rs {{data.productPrice}}</p>
+                <button class="btn btn-primary" (click)=addtocart(data)>Add to cart</button>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

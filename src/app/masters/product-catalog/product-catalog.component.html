@@ -4,7 +4,7 @@
             <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
                 
             </i>
-            <strong style="font-size: 30px;">Tomato</strong>
+            <strong style="font-size: 30px;">Ecart</strong>
             <div class="form-group">
                 <input type="text" class="form-control"   placeholder="search products">
             </div>
@@ -42,24 +42,24 @@
                 <h6>Fashion</h6>
             </a>
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <a>
                 <img style="width: 62px; margin-top: 5px;" src="https://rukminim1.flixcart.com/image/580/696/kkh6zrk0/jewellery-set/o/w/z/gt-ns-862-matushri-art-original-imafzt9teacakjyn.jpeg?q=50" alt="">
-                <h6>Jewllery</h6>
+                <h6>Others</h6>
             </a>
-        </div>
+        </div> -->
     </div>
 </div>
 
 <div class="container">
     <div class="row">
         <ng-container *ngFor="let data of productMasterData">
-            <div class="card col-md-3">
+            <div class="card col-md-4">
                 <img src="{{data.productImageUrl}}" alt="">
                 <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{data.productName}}</h5>
                 <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{data.productDescription}}</p>
                 <p><strong>Price:</strong> Rs {{data.productPrice}}</p>
-                <button class="btn btn-primary" (click)=addtocart(data)>Add to cart</button>
+                <button class="btn btn-primary addtocart" (click)=addtocart(data)>Add to cart</button>
             </div>
         </ng-container>
 

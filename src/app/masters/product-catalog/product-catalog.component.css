@@ -1,13 +1,61 @@
+.card-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: rgba(255, 255, 255, 0.952);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+}
+
+.item img {
+    width: 65px;
+}
+
+.item {
+    margin: 0px 15px;
+    text-align: center;
+}
+
+.item a:hover {
+    color: blue;
+}
+
+.card {
+    padding: 10px;
+    margin: 20px;
+    width: 220px;
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+.addtocart{
+    width: 200px;
+}
+
+
+/* header props */
 .form-control {
     border-radius: 3px;
-    width: 600px;
+    width: 300px;
     margin-left: 20px;
 }
 
 .search-icon {
     position: absolute;
     z-index: 10;
-    right: 59%;
+    left: 30%;
     top: 20px;
-    color: rgb(0, 183, 255);
+    color: blue;
 }

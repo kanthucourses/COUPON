@@ -22,8 +22,20 @@
                             <td><img style="width: 120px;" src="{{product.productImageUrl}}" alt=""></td>
                             <td style="width: 25%;">{{product.productDescription}}</td>
                             <th style="width: 12%;">{{product.productPrice}}</th>
-                            <td style="width: 12%;">{{product.productQuantity}}</td>
-                            <td style="width: 12%;">{{product.productPrice}}</td>
+                            <td style="width: 12%;"><span class="input-group-btn">
+                                <button type="button" class="btn btn-danger btn-number" data-type="plus" >
+                                    <span class="fa fa-minus fa-1x"></span>
+                                </button>
+                            </span>
+                            {{product.quantity}} 
+                             <span class="input-group-btn">
+                                <button type="button" class="btn btn-success btn-number" data-type="plus" >
+                                    <span class="fa fa-plus fa-1x"></span>
+                                </button>
+                            </span>
+                        </td> 
+                            
+                            <td style="width: 12%;">{{product.productPrice * product.quantity}}</td>
                             <td>
                                 <button (click)="removeProduct(product)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                             </td>

@@ -39,6 +39,9 @@ export class PaymentComponent implements OnInit {
       }
       else{
         this.toastr.success(data['statusMsg']);
+        this.couponvalue = null;
+        this.grandTotal = this.totalAmount -  this.couponvalue;
+        this.grandTotal;
       }
   })
 }

@@ -14,6 +14,7 @@ export class CouponService {
   saveCouponMasterDataUrl = 'http://localhost:9999/couponMaster/saveCouponMasterData';
   updateCouponMasterDataUrl = 'http://localhost:9999/couponMaster/updateCouponMasterData';
   deleteCouponMasterDataUrl = 'http://localhost:9999/couponMaster/deleteCouponMasterDataById?id=';
+  applyCouponCodeUrl = "http://localhost:9999/couponMaster/applyCouponCode?couponCode="
 
   constructor(private baseService: BaseServiceService) {
 
@@ -22,7 +23,7 @@ export class CouponService {
   getAllCouponMasterData(): Observable<any> {
     return this.baseService.Execute(RequestType.GET, this.getAllCouponMasterDataUrl , null)
   }
-  getLocByLocationId(couponCode: any): Observable<any> {
+  getCouponMasterDataByCouponCode(couponCode: any): Observable<any> {
     return this.baseService.Execute(RequestType.GET, this.getCouponMasterDataByCouponCodeUrl + couponCode , null)
   }
   saveCouponMasterData(data): Observable<any> {
@@ -34,4 +35,8 @@ export class CouponService {
   deleteCouponMasterDataById(id): Observable<any> {
     return this.baseService.Execute(RequestType.DELETE, this.deleteCouponMasterDataUrl + id, null)
   }
+  applyCouponCode(couponCode: any): Observable<any> {
+    return this.baseService.Execute(RequestType.GET, this.applyCouponCodeUrl + couponCode , null)
+  }
+
 }
